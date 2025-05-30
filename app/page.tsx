@@ -130,7 +130,7 @@ useEffect(() => {
             {/* Social Icons */}
             <div className="flex justify-center space-x-6 mb-12">
               <a
-                href="https://github.com"
+                href="https://github.com/zwroee"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 md:w-16 md:h-16 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/20 transition-colors cursor-pointer"
@@ -138,7 +138,7 @@ useEffect(() => {
                 <Github className="w-6 h-6 md:w-8 md:h-8 text-white" />
               </a>
               <a
-                href="https://last.fm"
+                href="https://www.last.fm/user/k33333333333"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 md:w-16 md:h-16 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/20 transition-colors cursor-pointer"
