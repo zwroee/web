@@ -42,9 +42,38 @@ export default function HomePage() {
   const handleVolumeChange = (newVolume: number[]) => {
     setVolume(newVolume)
     if (audioRef.current) {
-      audioRef.current.volume = newVolume[0]
+      audioRef.current.volume = newVolume[0.25]
     }
   }
+useEffect(() => {
+  const audio = audioRef.current
+
+  if (audio) {
+    audio.volume = volume[0]
+
+    // Try autoplay on load
+    const playPromise = audio.play()
+
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          setIsAudioPlaying(true)
+        })
+        .catch((err) => {
+          console.log("Autoplay blocked. Waiting for user interaction.", err)
+
+          // Wait for user interaction as a fallback
+          const handleInteraction = () => {
+            audio.play()
+            setIsAudioPlaying(true)
+            document.removeEventListener("click", handleInteraction)
+          }
+
+          document.addEventListener("click", handleInteraction)
+        })
+    }
+  }
+}, [volume])
 
   return (
     <div className="relative min-h-screen overflow-hidden">
